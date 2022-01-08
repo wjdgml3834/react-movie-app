@@ -1,14 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+// useEffect는 두개의 인수를 가지는 함수이다.
+// 첫번째 인수는 우리가 한번만 실행하고 싶은 코드가 들어간다.
+// useEffect는 우리 코드가 한번만 실행 되도록 보호해주는 역할을 한다.
 
 function App() {
   const [counter, setValue] = useState(0);
   const onClick = () => {
     setValue((prev) => prev + 1);
   };
-  console.log("render");
-  // 콘솔 로그를 찍어보면 useState를 사용하면 state의 변경값이 있을때마다 리렌더 된다.
-  // 그러나 우리는 가끔 component가 처음 렌더 될때만 코드가 실행되길 원할 수 도있다.
-  // 예를들어서 api를 호출한다고 했을때, 처음만 불러오고 싶지, 계속 api 데이터를 불러오고 싶진 않을것이다.
+  console.log("나는 계속 리렌더 될때마다 실행됨");
+
+  useEffect(() => {
+    console.log("나는 리렌더 되어도 한번만 실행될거야");
+  }, []);
+
   return (
     <div>
       <h1>{counter}</h1>
