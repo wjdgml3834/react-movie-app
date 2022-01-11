@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 function Movie({ coverImg, title, summary, genres }) {
   return (
@@ -12,5 +13,12 @@ function Movie({ coverImg, title, summary, genres }) {
     </div>
   );
 }
+
+Movie.propTypes = {
+  coverImg: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  summary: PropTypes.string,
+  genres: PropTypes.arrayOf(PropTypes.string),
+};
 
 export default Movie;
