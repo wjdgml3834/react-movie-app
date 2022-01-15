@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import Movie from "./components/Movie";
+import Movie from "../components/Movie";
+import { Link } from "react-router-dom";
+// Link는 브라우저 새로고침 없이도 유저를 다른 페이지로 이동시켜주는 컴포넌트이다.
 
 function Home() {
   const [loading, setLoading] = useState(true);
